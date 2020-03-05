@@ -8,6 +8,13 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path:'inicio',
+        children:[{
+          path:'',
+          loadChildren:()=>import('../inicio/inicio.module').then(m=>m.InicioPageModule)
+        }]
+      },
+      {
         path: 'tab1',
         children: [
           {
@@ -46,7 +53,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/inicio',
     pathMatch: 'full'
   }
 ];
