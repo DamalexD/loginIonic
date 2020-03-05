@@ -24,26 +24,6 @@
     font-size:25px;
     font-weight:700;
 }
-.button1{
-    width: 80%;
-    height: 40px;
-    color:#FF5733;
-    background-color:white;
-    font-size:20px;
-    position: relative;
-    top: 60%;
-    left: 30%;
-    transform: translate(-30%,60%);
-}
-.button1:hover{
-    width: 80%;
-    height: 40px;
-    color:white;
-    background-color:rgba(0,0,0,0);
-    border: 1px solid white;
-    font-size:25px;
-    font-weight:700;
-}
 .background{
     --ion-background-color: #FFD66B;
     --ion-background-color: -moz-linear-gradient(-45deg, #FFD66B 0%, #EC3629 100%);
@@ -68,3 +48,64 @@ img{
     left: 50%;
     transform: translate(-50%);
 }
+
+@media (min-width:1025px) { 
+    img{
+        opacity: 7%;
+        width: 40%;
+        height: 45%;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+    } 
+    .button{
+        width: 45%;
+        height: 40px;
+        color:#FF5733;
+        background-color:white;
+        font-size:20px;
+        position: relative;
+        top: 70%;
+        left: 40%;
+        transform: translate(-40%,70%);
+    }
+    .button:hover{
+        width: 45%;
+        height: 40px;
+        color:white;
+        background-color:rgba(0,0,0,0);
+        border: 1px solid white;
+        font-size:25px;
+        font-weight:700;
+    }
+}
+@media (min-width:1281px) { 
+    img{
+        opacity: 7%;
+        width: 40%;
+        height: 45%;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+    } 
+    .button{
+        width: 45%;
+        height: 40px;
+        color:#FF5733;
+        background-color:white;
+        font-size:20px;
+        position: relative;
+        top: 70%;
+        left: 40%;
+        transform: translate(-40%,70%);
+    }
+    .button:hover{
+        width: 45%;
+        height: 40px;
+        color:white;
+        background-color:rgba(0,0,0,0);
+        border: 1px solid white;
+        font-size:25px;
+        font-weight:700;
+    }
+ }
