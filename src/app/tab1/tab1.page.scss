@@ -43,7 +43,7 @@ ion-content ion-toolbar {
   float: left;
   height: 30%;
   width: 75%;
-  margin-top: 80%;
+  margin-top: 75%;
   margin-left: 3%;
   position: absolute;
   text-align: left;
@@ -52,10 +52,13 @@ ion-content ion-toolbar {
   float: right;
   height: 30%;
   width: 25%;
-  margin-top: 80%;
+  margin-top: 75%;
   font-size: 70%;
   margin-right: -25%;
   padding: 0px;
  position: relative;
 
+}
+.toolbar-background {
+  background-color: blue;
 }

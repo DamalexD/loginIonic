@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,32 +9,59 @@ import { NavController, AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(public nav: NavController, public alert: AlertController) { }
+  clNombre:string;
+  clPass:string;
+  strMessage: string;
+  blnNext: boolean;
+  name: string;
+  
+  constructor(public alertController: AlertController, private router:Router, public nav: NavController,) { }
 
-  ngOnInit() {
-    this.validarlocalstorage();
-  }
-  volver(){
-    this.nav.navigateRoot('inicio');
-  }
-  validarlocalstorage(){
-    let nombre =localStorage.getItem('nombre');
-    let apellido=localStorage.getItem('apellido');
-    let user=localStorage.getItem('user');
-    let correo=localStorage.getItem('correo');
-    let password=localStorage.getItem('pasword');
-    if(correo!==null&&password!==null&&nombre!==null&&apellido!==null&&user!==null){
-      this.nav.navigateRoot('tabs/tab1');
-    } else {
-      this.sincuenta();
-      this.nav.navigateRoot('registro');
+
+  async loguearse(strName:string, strPass:string){
+    this.strMessage = '';
+
+    (strName)? this.fnError() : this.fnError('Error: Podrías hacernos el favor a ambos de llenar el usuario');
+    (strPass)? this.fnError() : this.fnError('Error : ¿Eres tonto o no puedes poner tú contraseña?');
+
+    if(this.clNombre == "admin" && this.clPass == "123"){
+      this.router.navigate(['tabs/tab1']);
+    }else{
+      this.presentAlert();
     }
   }
-  async sincuenta() {
-    const alert = await this.alert.create({
-      message:'No te has registrado',
-      animated: true
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Un campo ingresado es inválido',
+      message: this.strMessage,
+      buttons: ['Deja le checo xD']
     });
-    alert.present();
+
+    await alert.present();
+  }
+  
+  fnError(msg?: string){
+    if(msg){
+      //console.log(msg);
+      this.strMessage += '<br>' + msg + '<br>';
+      this.blnNext = true;
+    }else if(this.blnNext){
+      this.blnNext = true;
+    }else{
+      this.blnNext = false;
+    }
+  }
+  ngOnInit(): void {
+    
+  }
+
+  volver(){
+      this.nav.navigateRoot('inicio');
   }
 }
+
+
+
+
+

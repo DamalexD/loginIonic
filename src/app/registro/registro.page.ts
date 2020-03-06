@@ -38,7 +38,7 @@ export class RegistroPage implements OnInit {
     (strApellido)? this.fnError() : this.fnError('Error : Favor de llenar el campo apellido');
     (strUser)? this.fnError() : this.fnError('Error : Favor de llenar el campo usuario');
     (strCorreo)? (this.regexp.test(strCorreo)) ? this.fnError() :
-    this.fnError('Eror : Correo invalido') : 
+    this.fnError('Error : Correo invalido') : 
     this.fnError('Error : Favor de llenar el campo e-mail');
     (strPass)? this.fnError() : this.fnError('Error : Favor de llenar el campo contraseña');
 
