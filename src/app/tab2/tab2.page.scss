@@ -1,3 +1,49 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+.completo{
+  height: 40%;
+  width: 80%;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: absolute;
+  text-align: center;
+}
+.derecha{
+  float: left;
+  height: 40%;
+  width: 60%;
+  margin-top: 50%;
+  margin-left: 3%;
+  position: absolute;
+  text-align: left;
+}
+.izquierda{
+  float: right;
+  height: 40%;
+  width: 60%;
+  margin-top: 58%;
+  margin-right: 3%;
+ position: relative;
+}
+.derecha1{
+  float: left;
+  height: 40%;
+  width: 60%;
+  margin-top: 80%;
+  margin-left: 3%;
+  position: absolute;
+  text-align: left;
+}
+.izquierda1{
+  float: right;
+  height: 40%;
+  width: 60%;
+  margin-top: 10%;
+  margin-right: 3%;
+ position: relative;
+}
+div{
+  text-align: center;
+}
