@@ -58,16 +58,19 @@
   
   <div class="inpu">
     <ion-item color="transparent">
-      <ion-label style="font-size: 130%;" type="password" position="floating">Contraseña: </ion-label>
-      <ion-input #pass [(ngModel)]='clPass'></ion-input>
+      <ion-label style="font-size: 130%;"  position="floating">Contraseña: </ion-label>
+      <ion-input #pass [(ngModel)]='clPass' type="password"></ion-input>
     </ion-item>
   </div>
 
-  <br><br>
-  <div class="inpu" style="width: 100%;height: 6%; text-align: center;"> 
+  
+  <div class="inpu" style="width: 100%;height: 6%; text-align: center; margin-top:5% ;"> 
       <button class="button" (click)="addPerson(nombre.value, apellido.value, user.value, correo.value, pass.value)" expand="full" mode="ios">
         Guardar
       </button>
+      
+  <br><br><br>
   </div>
   </div>
+
 </ion-content>
