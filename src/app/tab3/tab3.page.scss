@@ -1,3 +1,61 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+.der{
+  float: left;
+  height: 30%;
+  width: 75%;
+  margin-top: 5%;
+  margin-left: 3%;
+  position: absolute;
+  text-align: left;
+}
+.iz{
+  float: right;
+  height: 30%;
+  width: 25%;
+  margin-top: 5%;
+  font-size: 70%;
+  margin-right: 3%;
+  padding: 0px;
+ position: relative;
+}
+.der1{
+  float: left;
+  height: 30%;
+  width: 75%;
+  margin-top: 50%;
+  margin-left: 3%;
+  position: absolute;
+  text-align: left;
+}
+.iz1{
+  float: right;
+  height: 30%;
+  width: 25%;
+  margin-top: 46%;
+  font-size: 70%;
+  margin-right: -25%;
+  padding: 0px;
+ position: relative;
+}
+.der2{
+  float: left;
+  height: 30%;
+  width: 75%;
+  margin-top: 82%;
+  margin-left: 3%;
+  position: absolute;
+  text-align: left;
+}
+.iz2{
+  float: right;
+  height: 30%;
+  width: 25%;
+  margin-top: 83%;
+  font-size: 70%;
+  margin-right: -25%;
+  padding: 0px;
+ position: relative;
+
+}
