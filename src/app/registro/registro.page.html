@@ -1,16 +1,24 @@
 <ion-content fullscreen>
 
-  <div id="divP" style="height: 700px;">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Back</ion-title>
+  <div id="divP" style="height: 100%;">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          <ion-icon style="font-size: 160%; margin-top: 1%; padding-left: 2%;" name="arrow-back-outline" (click)="volver()"></ion-icon>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    
 
   <br> <br>
+  
   <div class="fondo">
-    <ion-label>Sing Up</ion-label>
+    <ion-label style="color: #FF5733;">Sing Up</ion-label>
   </div>
+
   <br> <br>
+
   <div class="fondo">
     <ion-label>Hello there !</ion-label>
   </div>
@@ -18,36 +26,49 @@
   <div class="fondo">
     <ion-label>welcome to you.</ion-label>
   </div>
-  <br> <br> <br>
-  <div class="fondo">
-    <ion-label position="floating">Nombre: </ion-label>
-    <ion-input #nombre [(ngModel)]='clNombre'></ion-input>
+
+  <br> <br>
+
+  <div class="inpu">
+    <ion-item color="transparent">
+      <ion-label style="font-size: 130%;" position="floating">Nombre: </ion-label>
+      <ion-input #nombre [(ngModel)]='clNombre'></ion-input>
+    </ion-item>
   </div>
 
-  <div class="fondo">
-    <ion-label position="floating">Apellido: </ion-label>
-    <ion-input  #apellido [(ngModel)]='clApellido'></ion-input>
-  </div>
-  
-  <div class="fondo">
-    <ion-label position="floating">Usuario: </ion-label>
-    <ion-input #user [(ngModel)]='clUser'></ion-input>
-  </div>
-  
-  <div class="fondo">
-    <ion-label position="floating">Correo: </ion-label>
-    <ion-input #correo [(ngModel)]='clCorreo'></ion-input>
-  </div>
-  
-  <div >
-    <ion-item class="fondo">
-      <ion-label type="password" position="floating">Contraseña: </ion-label>
-      <ion-input #pass [(ngModel)]='clPass'></ion-input>
+  <div class="inpu">
+    <ion-item color="transparent">
+      <ion-label style="font-size: 130%;" position="floating">Apellido: </ion-label>
+      <ion-input  #apellido [(ngModel)]='clApellido'></ion-input>
     </ion-item>
   </div>
   
-  <div class="fondo">
-    <ion-button (click)="addPerson(nombre.value, apellido.value, user.value, correo.value, pass.value, pass2.value)" expand="full" mode="ios">Guardar</ion-button>
+  <div class="inpu">
+    <ion-item color="transparent">
+      <ion-label style="font-size: 130%;" position="floating">Usuario: </ion-label>
+      <ion-input #user [(ngModel)]='clUser'></ion-input>
+    </ion-item>
   </div>
-</div>
+  
+  <div class="inpu">
+    <ion-item color="transparent">
+      <ion-label style="font-size: 130%;" position="floating">Correo: </ion-label>
+      <ion-input #correo [(ngModel)]='clCorreo'></ion-input>
+    </ion-item>
+  </div>
+  
+  <div class="inpu">
+    <ion-item color="transparent">
+      <ion-label style="font-size: 130%;" type="password" position="floating">Contraseña: </ion-label>
+      <ion-input #pass [(ngModel)]='clPass'></ion-input>
+    </ion-item>
+  </div>
+
+  <br><br>
+  <div class="inpu" style="width: 100%;height: 6%; text-align: center;"> 
+      <button class="button" (click)="addPerson(nombre.value, apellido.value, user.value, correo.value, pass.value)" expand="full" mode="ios">
+        Guardar
+      </button>
+  </div>
+  </div>
 </ion-content>

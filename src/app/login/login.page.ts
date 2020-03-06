@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import {Router} from '@angular/router';
 
 @Component({
@@ -9,15 +9,13 @@ import {Router} from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-
   clNombre:string;
   clPass:string;
   strMessage: string;
   blnNext: boolean;
   name: string;
   
-
-  constructor(public alertController: AlertController, private router:Router) { }
+  constructor(public alertController: AlertController, private router:Router, public nav: NavController,) { }
 
 
   async loguearse(strName:string, strPass:string){
@@ -54,12 +52,16 @@ export class LoginPage implements OnInit {
       this.blnNext = false;
     }
   }
-
-
-  ngOnInit() {
+  ngOnInit(): void {
+    
   }
 
-
-
-
+  volver(){
+      this.nav.navigateRoot('inicio');
+  }
 }
+
+
+
+
+

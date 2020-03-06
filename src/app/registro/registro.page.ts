@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, IonSearchbar } from '@ionic/angular';
+import { AlertController, IonSearchbar, NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -14,17 +15,20 @@ export class RegistroPage implements OnInit {
   clUser : string;
   clCorreo : string;
   clPass : string;
-  clPass2 : string;
   blnNext : boolean;
   strMessage : string;
   regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
   
-  constructor(public alertController : AlertController) { }
+  constructor(public alertController : AlertController, public nav: NavController) { }
+
+  volver(){
+    this.nav.navigateRoot('inicio');
+  }
 
   ngOnInit() {
   }
 
-  async addPerson(strNombre : string, strApellido : string, strUser : string, strCorreo : string, strPass : string, strPass2 : string){
+  async addPerson(strNombre : string, strApellido : string, strUser : string, strCorreo : string, strPass : string){
 
     this.strMessage = '';
 
@@ -34,17 +38,10 @@ export class RegistroPage implements OnInit {
     (strApellido)? this.fnError() : this.fnError('Error : Favor de llenar el campo apellido');
     (strUser)? this.fnError() : this.fnError('Error : Favor de llenar el campo usuario');
     (strCorreo)? (this.regexp.test(strCorreo)) ? this.fnError() :
-    this.fnError('Eror : Correo invalido') : 
+    this.fnError('Error : Correo invalido') : 
     this.fnError('Error : Favor de llenar el campo e-mail');
     (strPass)? this.fnError() : this.fnError('Error : Favor de llenar el campo contraseña');
-    (strPass2)? this.fnError() : this.fnError('Error : Favor de confirmar la contraseña');
 
-    this.clNombre ='';
-    this.clApellido ='';
-    this.clUser ='';
-    this.clCorreo ='';
-    this.clPass ='';
-    this.clPass2 ='';
 
     if(!this.blnNext){
       const jsnPersona: any = {
@@ -52,11 +49,21 @@ export class RegistroPage implements OnInit {
         strApellido,
         strUser,
         strCorreo,
-        strPass,
-        strPass2
+        strPass
       };
     this.arrPersonas.push(jsnPersona);
+    localStorage.setItem('nombre',this.clNombre);
+    localStorage.setItem('apellido',this.clApellido);
+    localStorage.setItem('user',this.clUser);
+    localStorage.setItem('correo',this.clCorreo);
+    localStorage.setItem('pasword',this.clPass);
+    this.clNombre ='';
+    this.clApellido ='';
+    this.clUser ='';
+    this.clCorreo ='';
+    this.clPass ='';
     console.log(this.arrPersonas);
+    this.nav.navigateRoot('tabs/tab1')
 
     const alert = await this.alertController.create({
       header: 'Éxito',
