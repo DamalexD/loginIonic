@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tab1',
@@ -8,10 +8,7 @@ import { NavController } from '@ionic/angular';
 })
 export class Tab1Page {
 
-  constructor(public nav: NavController) {}
-  cerrar(){
-    localStorage.clear();
-    this.nav.navigateRoot('inicio');
-  }
+  constructor() {}
+ 
 
 }
