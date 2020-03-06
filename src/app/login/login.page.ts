@@ -26,6 +26,8 @@ export class LoginPage implements OnInit {
 
     if(this.clNombre == "admin" && this.clPass == "123"){
       this.router.navigate(['tabs/tab1']);
+      localStorage.setItem('usuario',this.clNombre);
+      localStorage.setItem('pass',this.clPass);
     }else{
       this.presentAlert();
     }
