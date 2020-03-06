@@ -1,16 +1,15 @@
-<div id="divP " style="height: 700px;">
-<ion-toolbar>
-  <!--<ion-title>login</ion-title>-->
-  <button (click)="volver()"> < Volver</button>
-</ion-toolbar>
+<ion-content id="divP" class="background" fullscreen>
+  <div  style="height: 100%;">
+    <ion-toolbar>
+      <!--<ion-title>login</ion-title>-->
+      <ion-icon name="arrow-back-outline" (click)="volver()">  Volver</ion-icon >
+    </ion-toolbar>
 
   <!-- Contenido -->
 
-  <ion-content> 
-    <ion-content fullscreen>
       
       <div class="centpadd">
-      <ion-title>Login</ion-title>
+      <ion-title color="transparent">Login</ion-title>
       &nbsp;&nbsp;&nbsp;<h2>Ey!</h2>
       <h4>&nbsp;&nbsp;&nbsp;&nbsp; Bienvenido de vuelta juapo</h4>
 
@@ -19,21 +18,20 @@
         <ion-input #name [(ngModel)]='clNombre'></ion-input>
       </ion-item>
 
-      <ion-item>
+      <ion-item color="transparent">
         <ion-label position="floating">Contraseña</ion-label>
         <ion-input #pass  type="password" [(ngModel)]='clPass'></ion-input>
       </ion-item>
 
-    </div>
       <button class="button" (click)="loguearse(name.value, pass.value)">Iniciar sesión</button>
 
       <!-- Footer -->
-      <ion-footer class="ion-no-border">
+      <ion-footer class="ion-no-border" color="transparent">
         <ion-toolbar>
           <p class="footerGris">¿No tienes cuenta? <a class="manitaCursor" onclick=" location.href='/registro'">Únetenos!</a></p>
         </ion-toolbar>
       </ion-footer>
-
-    </ion-content>
-  </ion-content>
-</div>
+    </div>
+  </div>
+</ion-content>
+  
