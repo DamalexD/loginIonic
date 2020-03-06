@@ -1,33 +1,41 @@
-<ion-buttons slot="start">
-  <ion-back-button text="Volver" color="danger" icon="add"></ion-back-button>
-</ion-buttons>
+<div id="divP" style="height: 700px;">
+  <!-- Header -->
+    <ion-buttons slot="start">
+      <ion-back-button text="Volver" color="danger" icon="add"></ion-back-button>
+    </ion-buttons>
 
 
 
-<ion-content>
-  <ion-content fullscreen>
+  <!-- Contenido -->
 
-    <ion-title>Login</ion-title>
-    &nbsp;&nbsp;&nbsp;<p>Ey! bienvenido de vuelta juapo</p>
+  <ion-content> 
+    <ion-content fullscreen>
+      
+      <div class="centpadd">
+      <ion-title>Login</ion-title>
+      &nbsp;&nbsp;&nbsp;<h2>Ey!</h2>
+      <h4>&nbsp;&nbsp;&nbsp;&nbsp; Bienvenido de vuelta juapo</h4>
 
-    <ion-item>
-      <ion-label position="floating">Nombre de usuario</ion-label>
-      <ion-input #name [(ngModel)]='clNombre'></ion-input>
-    </ion-item>
+      <ion-item style="margin-top: 10px;">
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input #name [(ngModel)]='clNombre'></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input #pass  type="password" [(ngModel)]='clPass'></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input #pass  type="password" [(ngModel)]='clPass'></ion-input>
+      </ion-item>
 
-    
-    <ion-button expand="full" color="danger" (click)="loguearse(name.value, pass.value)">Iniciar sesión</ion-button>
+    </div>
+      <button class="button" (click)="loguearse(name.value, pass.value)">Iniciar sesión</button>
 
+      <!-- Footer -->
+      <ion-footer class="ion-no-border">
+        <ion-toolbar>
+          <p class="footerGris">¿No tienes cuenta? <a class="manitaCursor" onclick=" location.href='/registro'">Únetenos!</a></p>
+        </ion-toolbar>
+      </ion-footer>
+
+    </ion-content>
   </ion-content>
-  <ion-footer class="ion-no-border">
-  <ion-toolbar>
-    <p class="footerGris">¿No tienes cuenta? <a href="https://google.com">Únetenos!</a></p>
-  </ion-toolbar>
-</ion-footer>
-
-</ion-content>
+</div>
