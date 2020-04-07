@@ -1,0 +1,76 @@
+<ion-content fullscreen>
+
+    <div id="divP" style="height: auto;">
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>
+                    <ion-icon style="font-size: 160%; margin-top: 1%; padding-left: 2%;" name="arrow-back-outline" (click)="volver()"></ion-icon>
+                </ion-title>
+            </ion-toolbar>
+        </ion-header>
+
+
+
+        <br> <br>
+
+        <div class="fondo">
+            <ion-label style="color: #FF5733;">Sing Up</ion-label>
+        </div>
+
+        <br> <br>
+
+        <div class="fondo">
+            <ion-label>Hello there !</ion-label>
+        </div>
+
+        <div class="fondo">
+            <ion-label>welcome to you.</ion-label>
+        </div>
+
+        <br> <br>
+        <form #userForm="ngForm">
+            <div class="inpu">
+                <ion-item color="transparent">
+                    <ion-label style="font-size: 130%;" position="floating">Nombre: </ion-label>
+                    <ion-input name="firstName" #firstName="ngModel" [(ngModel)]='registroService.firstName'></ion-input>
+                </ion-item>
+            </div>
+
+            <div class="inpu">
+                <ion-item color="transparent">
+                    <ion-label style="font-size: 130%;" position="floating">Apellido: </ion-label>
+                    <ion-input name="secondName" #secondName="ngModel" [(ngModel)]='registroService.secondName'></ion-input>
+                </ion-item>
+            </div>
+
+            <div class="inpu">
+                <ion-item color="transparent">
+                    <ion-label style="font-size: 130%;" position="floating">Usuario: </ion-label>
+                    <ion-input name="userName" #userName="ngModel" [(ngModel)]='registroService.userName'></ion-input>
+                </ion-item>
+            </div>
+
+            <div class="inpu">
+                <ion-item color="transparent">
+                    <ion-label style="font-size: 130%;" position="floating">Correo: </ion-label>
+                    <ion-input name="email" #email="ngModel" [(ngModel)]='registroService.email'></ion-input>
+                </ion-item>
+            </div>
+
+            <div class="inpu">
+                <ion-item color="transparent">
+                    <ion-label style="font-size: 130%;" position="floating">Contraseña: </ion-label>
+                    <ion-input name="password" #password="ngModel" [(ngModel)]='registroService.password'></ion-input>
+                </ion-item>
+            </div>
+
+
+            <div class="inpu" style="width: 100%;height: 6%; text-align: center; margin-top:5% ;">
+                <button [routerLink]="'/login'" class="button" (click)="registroService.addUser()" expand="full" mode="ios">Guardar</button>
+                <br><br><br>
+            </div>
+        </form>
+    </div>
+
+
+</ion-content>
