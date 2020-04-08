@@ -21,21 +21,6 @@ export class LoginPage implements OnInit {
   ngOnInit(): void {
   }
 
-  // async loguearse(strName: string, strPass: string, form: NgForm){
-  //   this.strMessage = '';
-
-  //   (strName)? this.fnError() : this.fnError('Error: Podrías hacernos el favor a ambos de llenar el usuario');
-  //   (strPass)? this.fnError() : this.fnError('Error : ¿Eres tonto o no puedes poner tú contraseña?');
-
-  //   if(this.clNombre == "admin" && this.clPass == "123"){
-  //     this.router.navigate(['tabs/tab1']);
-  //     localStorage.setItem('usuario',this.clNombre);
-  //     localStorage.setItem('pass',this.clPass);
-  //   }else{
-  //     this.presentAlert();
-  //   }
-  // }
-
 
 
   async presentAlert() {
@@ -43,6 +28,16 @@ export class LoginPage implements OnInit {
       header: 'Un campo ingresado es inválido',
       message: this.strMessage,
       buttons: ['Deja le checo xD']
+    });
+
+    await alert.present();
+  }
+  
+  async userNotFound() {
+    const alert = await this.alertController.create({
+      header: 'Error, usuario no encontrado',
+      message: this.strMessage,
+      buttons: ['OK']
     });
 
     await alert.present();
@@ -70,10 +65,11 @@ export class LoginPage implements OnInit {
     this.loginService.postLogin(form.value).subscribe(res  =>{
       let data = JSON.stringify(res);
       let dataLogin = JSON.parse(data);
+      console.log(dataLogin);
       if (dataLogin.User){
-        this.router.navigate(['/hello']);
+        this.router.navigate(['/tabs/tab1']);
       }else{
-        console.log('Error not found');
+        this.userNotFound();
       }
     });
   }

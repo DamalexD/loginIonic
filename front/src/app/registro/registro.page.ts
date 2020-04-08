@@ -16,12 +16,6 @@ export class RegistroPage implements OnInit {
   private todo : FormGroup;
   data: string;
   dataJSON;
-  // arrPersonas : Array<any> = [] as Array<JSON>;
-  // firstName : string;
-  // secondName : string;
-  // userName : string;
-  // email : string;
-  // password : string;
   blnNext : boolean;
   strMessage : string;
   // tslint:disable-next-line: max-line-length
@@ -37,13 +31,6 @@ export class RegistroPage implements OnInit {
     
     
   }
-  // // user = {
-  // //   firstname:"",
-  // //   secondName:"",
-  // //   userName:"",
-  // //   email:"",
-  // //   password:""
-  // // };
    ngOnInit() {
    }
   async addUser(form: NgForm){
@@ -66,23 +53,8 @@ export class RegistroPage implements OnInit {
 
 
     if(!this.blnNext){
-          // const jsnPersona: any = {
-          //   name : this.firstName,
-          //   lastname : this.secondName,
-          //   user : this.userName,
-          //   correo : this.email,
-          //   pass : this.password
-          // };
-          // this.arrPersonas.push(jsnPersona);
-          // this.firstName ='';
-          // this.secondName ='';
-          // this.userName ='';
-          // this.email ='';
-          // this.password ='';
-          // console.log(this.arrPersonas);
           this.userService.postUser(form.value)
       .subscribe(async res => {
-        // console.log(this.todo.value);
         console.log(res);
         if(!res){
           console.log("Nel valió kk xd");
@@ -100,74 +72,11 @@ export class RegistroPage implements OnInit {
         }else{
           this.presentAlert();
         }
-
-
-
-
-    // this.userService.postUser(form.value)
-    //   .subscribe(async res => {
-    //     // console.log(this.todo.value);
-    //     console.log(res);
-    //     if(!res){
-    //       console.log("Nel valió kk xd");
-    //       this.presentAlert();
-    //     }else{
-    //       this.router.navigate(['/login']);
-    //       const alert = await this.alertController.create({
-    //             header: 'Éxito',
-    //             message: 'Se creo la cuenta',
-    //             buttons: ['OK']
-    //           });
-    //           await alert.present();
-    //       }
-    //   });
       
   }
   volver(){
     this.nav.navigateRoot('inicio');
   }
-
-  // // firstName: String,secondName: String,userName: String,email: String,password: String
-  // async addUser(){
-  //   this.strMessage = '';
-  //   this.blnNext = false;
-  //   (this.firstName)? this.fnError() : this.fnError('Error : Favor de llenar el campo nombre');
-  //   (this.secondName)? this.fnError() : this.fnError('Error : Favor de llenar el campo apellido');
-  //   (this.userName)? this.fnError() : this.fnError('Error : Favor de llenar el campo usuario');
-  //   (this.email)? (this.regexp.test(this.email)) ? this.fnError() :
-  //   this.fnError('Error : Correo invalido') :
-  //   this.fnError('Error : Favor de llenar el campo e-mail');
-  //   (this.password)? this.fnError() : this.fnError('Error : Favor de llenar el campo contraseña'); 
-
-  //   if(!this.blnNext){
-  //     const jsnPersona: any = {
-  //       name : this.firstName,
-  //       lastname : this.secondName,
-  //       user : this.userName,
-  //       correo : this.email,
-  //       pass : this.password
-  //     };
-  //     this.arrPersonas.push(jsnPersona);
-  //     this.firstName ='';
-  //     this.secondName ='';
-  //     this.userName ='';
-  //     this.email ='';
-  //     this.password ='';
-  //     // console.log(this.arrPersonas);
-  //     this.userService.postUser(jsnPersona).subscribe(res => {
-  //       console.log(res);
-  //     });
-  //     this.nav.navigateRoot('tabs/tab1');
-  //     const alert = await this.alertController.create({
-  //     header: 'Éxito',
-  //     message: 'Se creo la cuenta',
-  //     buttons: ['OK']
-  //   });
-  //     await alert.present();
-  //   }else{
-  //     this.presentAlert();
-  //   }
-  // }
 
   fnError(msg?: string){
     if(msg){
