@@ -29,8 +29,12 @@
     "cordova-android": "8.1.0",
     "core-js": "^2.5.4",
     "express": "^4.17.1",
+<<<<<<< HEAD:package.json
     "mongoose": "^5.9.7",
     "pdfkit": "^0.11.0",
+=======
+    "mongoose": "^5.9.6",
+>>>>>>> 7bca3cc2bcfb6d48d27c90ae5e5726caa0328b8b:front/package.json
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
