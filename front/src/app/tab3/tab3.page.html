@@ -1,19 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-title>
-     Configuraciones
+     <h1> {{ 'Configuration' |uppercase }}</h1>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" color="medium">
 <div style="margin-top: 5%;">
-  <ion-item color="medium"><ion-label>Editar perfil</ion-label></ion-item>
-  <ion-item color="medium"><ion-label>Seguridad</ion-label></ion-item>
-  <ion-item color="medium"><ion-label>Cuenta</ion-label></ion-item>
-  <ion-item color="medium"><ion-label>Sonido</ion-label></ion-item>
-  <ion-item color="medium"><ion-label>Pantalla</ion-label></ion-item>
-  <ion-item color="medium"><ion-label>Cerrar sesión</ion-label><ion-icon name="power-outline" (click)="cerrar()"></ion-icon></ion-item>
+  <ion-item color="medium"><ion-label>{{'Editar perfil' |titlecase}}</ion-label></ion-item>
+  <ion-item color="medium"><ion-label>{{'Seguridad' |titlecase}}</ion-label></ion-item>
+  <ion-item color="medium"><ion-label>{{'Cuenta' |titlecase}}</ion-label></ion-item>
+  <ion-item color="medium"><ion-label>{{'Sonido' |titlecase}}</ion-label></ion-item>
+  <ion-item color="medium"><ion-label>{{'Pantalla' |titlecase}}</ion-label></ion-item>
+  <ion-item color="medium"><ion-label>{{'Cerrar sesión' |titlecase}}</ion-label><ion-icon name="power-outline" (click)="cerrar()"></ion-icon></ion-item>
 </div>
 
 
