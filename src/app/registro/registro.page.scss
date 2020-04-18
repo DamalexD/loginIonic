@@ -44,3 +44,7 @@ ion-content{
     padding-left: 5%;
     color: black;
 }
+
+.item-has-focus.label-floating.sc-ion-label-md-h, .item-has-focus .label-floating.sc-ion-label-md-h, .item-has-focus.label-stacked.sc-ion-label-md-h, .item-has-focus .label-stacked.sc-ion-label-md-h {
+    color: #e3e3e3;
+}
