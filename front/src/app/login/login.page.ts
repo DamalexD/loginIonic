@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
 import {Router} from '@angular/router';
-
+import { LoginService } from '../services/login.service';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,23 +16,12 @@ export class LoginPage implements OnInit {
   blnNext: boolean;
   name: string;
   
-  constructor(public alertController: AlertController, private router:Router, public nav: NavController,) { }
-
-
-  async loguearse(strName:string, strPass:string){
-    this.strMessage = '';
-
-    (strName)? this.fnError() : this.fnError('Error: Podrías hacernos el favor a ambos de llenar el usuario');
-    (strPass)? this.fnError() : this.fnError('Error : ¿Eres tonto o no puedes poner tú contraseña?');
-
-    if(this.clNombre == "admin" && this.clPass == "123"){
-      this.router.navigate(['tabs/tab1']);
-      localStorage.setItem('usuario',this.clNombre);
-      localStorage.setItem('pass',this.clPass);
-    }else{
-      this.presentAlert();
-    }
+  // tslint:disable-next-line: max-line-length
+  constructor(public alertController: AlertController, private router: Router, public nav: NavController, public loginService: LoginService) { }
+  ngOnInit(): void {
   }
+
+
 
   async presentAlert() {
     const alert = await this.alertController.create({
@@ -43,9 +33,20 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
   
+  async userNotFound() {
+    const alert = await this.alertController.create({
+      header: 'Error, usuario no encontrado',
+      message: this.strMessage,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+  
+
+
   fnError(msg?: string){
     if(msg){
-      //console.log(msg);
       this.strMessage += '<br>' + msg + '<br>';
       this.blnNext = true;
     }else if(this.blnNext){
@@ -54,12 +55,23 @@ export class LoginPage implements OnInit {
       this.blnNext = false;
     }
   }
-  ngOnInit(): void {
-    
-  }
+  
 
   volver(){
       this.nav.navigateRoot('inicio');
+  }
+
+  login(form: NgForm){
+    this.loginService.postLogin(form.value).subscribe(res  =>{
+      let data = JSON.stringify(res);
+      let dataLogin = JSON.parse(data);
+      console.log(dataLogin);
+      if (dataLogin.User){
+        this.router.navigate(['/tabs/tab1']);
+      }else{
+        this.userNotFound();
+      }
+    });
   }
 }
 
