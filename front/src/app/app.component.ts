@@ -10,6 +10,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  titulo = 'tienda';
+
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -17,6 +21,7 @@ export class AppComponent {
   ) {
     this.initializeApp();
   }
+
 
   initializeApp() {
     this.platform.ready().then(() => {
